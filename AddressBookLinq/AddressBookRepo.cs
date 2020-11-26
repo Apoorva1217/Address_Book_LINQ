@@ -178,5 +178,16 @@ namespace AddressBookLinq
                 }
             }
         }
+
+        /// <summary>
+        /// UC9 Ability to identify each Address Book with name and type
+        /// </summary>
+        public void AddAddressBookNameAndType(Details details)
+        {
+            dataTable.Columns.Add("AddressBookName", typeof(string));
+            dataTable.Columns.Add("AddressBookType", typeof(string));
+
+            dataTable.Rows.Add(details.AddressBookName, details.AddressBookType);
+        }
     }
 }

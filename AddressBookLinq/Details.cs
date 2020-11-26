@@ -14,12 +14,14 @@ namespace AddressBookLinq
         public string ZipCode { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+        public string AddressBookName { get; set; }
+        public string AddressBookType { get; set; }
 
         public Details()
         {
         }
 
-        public Details(string FirstName, string LastName, string Address, string City, string State, string ZipCode, string PhoneNumber, string Email)
+        public Details(string FirstName, string LastName, string Address, string City, string State, string ZipCode, string PhoneNumber, string Email,string AddressBookName,string AddressBookType)
         {
             this.FirstName = FirstName;
             this.LastName = LastName;
@@ -29,6 +31,8 @@ namespace AddressBookLinq
             this.ZipCode = ZipCode;
             this.PhoneNumber = PhoneNumber;
             this.Email = Email;
+            this.AddressBookName = AddressBookName;
+            this.AddressBookType = AddressBookType;
         }
     }
 }
