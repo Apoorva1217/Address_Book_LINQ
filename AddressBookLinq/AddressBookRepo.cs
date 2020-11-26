@@ -159,5 +159,24 @@ namespace AddressBookLinq
                 Console.WriteLine("State " + list.State + "----- Count" + list.count);
             }
         }
+
+        /// <summary>
+        /// UC8 Ability to retrieve entries sorted alphabetically by person's name for givan city
+        /// </summary>
+        /// <param name="city"></param>
+        public void SortPersonByAlphabetically(string city)
+        {
+            var sortData = from row in dataTable.AsEnumerable()
+                          .Where(x => x.Field<string>("city") == city)
+                          .OrderBy(y => y.Field<string>("FirstName"))
+                           select row;
+            foreach (DataRow row in sortData)
+            {
+                foreach (DataColumn column in dataTable.Columns)
+                {
+                    Console.Write(" " + row[column]);
+                }
+            }
+        }
     }
 }

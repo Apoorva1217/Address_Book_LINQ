@@ -90,6 +90,11 @@ namespace AddressBookLinq
                         addressBookRepo.GetCountOfPersonByState();
                         break;
                     case 9:
+                        Console.WriteLine("Enter City:");
+                        string city = Console.ReadLine();
+                        addressBookRepo.SortPersonByAlphabetically(city);
+                        break;
+                    case 10:
                         return;
                 }
             }
