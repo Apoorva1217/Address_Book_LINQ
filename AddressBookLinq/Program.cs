@@ -25,7 +25,8 @@ namespace AddressBookLinq
                 Console.WriteLine("8.Count Person By State");
                 Console.WriteLine("9.Sort Person Alphabetically for given City");
                 Console.WriteLine("10.Add Address Book Name and Type");
-                Console.WriteLine("11.Exit");
+                Console.WriteLine("11.Count Person By Address Book Type");
+                Console.WriteLine("12.Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -104,6 +105,9 @@ namespace AddressBookLinq
                         addressBookRepo.AddAddressBookNameAndType(details);
                         break;
                     case 11:
+                        addressBookRepo.GetcountByAddressBookType();
+                        break;
+                    case 12:
                         return;
                 }
             }

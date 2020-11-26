@@ -189,5 +189,19 @@ namespace AddressBookLinq
 
             dataTable.Rows.Add(details.AddressBookName, details.AddressBookType);
         }
+
+        /// <summary>
+        /// Uc10 Ability to get number of contact persons i.e. count by type
+        /// </summary>
+        public void GetcountByAddressBookType()
+        {
+            var countByType = from row in dataTable.AsEnumerable()
+                            group row by new { AddressBookType = row.Field<string>("AddressBookType") } into data
+                            select new { AddressBookType = data.Key.AddressBookType, count = data.Count() };
+            foreach (var list in countByType)
+            {
+                Console.WriteLine("AddressBookType " + list.AddressBookType + "----- Count" + list.count);
+            }
+        }
     }
 }
