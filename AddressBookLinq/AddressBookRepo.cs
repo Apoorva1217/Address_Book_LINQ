@@ -95,5 +95,41 @@ namespace AddressBookLinq
                 deleteData.Delete();
             }
         }
+
+        /// <summary>
+        /// UC6 Ability to retrieve person belonging to City from Address Book
+        /// </summary>
+        /// <param name="City"></param>
+        public void RetrievePersonBelongingToCity(string City)
+        {
+            var retrieveData = from productReviews in dataTable.AsEnumerable()
+                               where productReviews.Field<string>("City") == City
+                               select productReviews;
+            foreach (DataRow row in retrieveData)
+            {
+                foreach (DataColumn column in dataTable.Columns)
+                {
+                    Console.Write(" "+row[column]);
+                }
+            }
+        }
+
+        /// <summary>
+        /// UC6 Ability to retrieve person belonging to State from Address Book
+        /// </summary>
+        /// <param name="State"></param>
+        public void RetrievePersonBelongingToState(string State)
+        {
+            var retrieveData = from productReviews in dataTable.AsEnumerable()
+                               where productReviews.Field<string>("State") == State
+                               select productReviews;
+            foreach (DataRow row in retrieveData)
+            {
+                foreach (DataColumn column in dataTable.Columns)
+                {
+                    Console.Write(" " + row[column]);
+                }
+            }
+        }
     }
 }

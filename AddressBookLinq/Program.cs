@@ -18,7 +18,10 @@ namespace AddressBookLinq
                 Console.WriteLine("1.Display Address Book");
                 Console.WriteLine("2.Add Contact");
                 Console.WriteLine("3.Edit Existing Contact");
-                Console.WriteLine("4.Exit");
+                Console.WriteLine("4.Delete Contact");
+                Console.WriteLine("5.Retrieve Person By City");
+                Console.WriteLine("6.Retrieve Person By State");
+                Console.WriteLine("7.Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -69,6 +72,16 @@ namespace AddressBookLinq
                         addressBookRepo.DeleteContact(FirstName);
                         break;
                     case 5:
+                        Console.WriteLine("Enter City:");
+                        string City = Console.ReadLine();
+                        addressBookRepo.RetrievePersonBelongingToCity(City);
+                        break;
+                    case 6:
+                        Console.WriteLine("Enter State:");
+                        string State = Console.ReadLine();
+                        addressBookRepo.RetrievePersonBelongingToState(State);
+                        break;
+                    case 7:
                         return;
                 }
             }
