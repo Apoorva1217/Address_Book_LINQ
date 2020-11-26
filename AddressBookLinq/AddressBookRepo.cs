@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 
 namespace AddressBookLinq
@@ -56,6 +57,29 @@ namespace AddressBookLinq
         {
             dataTable.Rows.Add(details.FirstName, details.LastName, details.Address, details.City,
                 details.State, details.ZipCode, details.PhoneNumber, details.Email);
+        }
+
+        /// <summary>
+        /// UC4 Ability to edit existing contact person using their name
+        /// </summary>
+        /// <param name="details"></param>
+        public void EditContact(Details details)
+        {
+            var data = dataTable.AsEnumerable().Where(x => x.Field<string>("FirstName") == details.FirstName).FirstOrDefault();
+            if (data != null)
+            {
+                data.SetField("LastName", details.LastName);
+                data.SetField("Address", details.Address);
+                data.SetField("City", details.City);
+                data.SetField("State", details.State);
+                data.SetField("ZipCode", details.ZipCode);
+                data.SetField("PhoneNumber", details.PhoneNumber);
+                data.SetField("Email", details.Email);
+            }
+            else
+            {
+                Console.WriteLine("No Data Found");
+            }
         }
     }
 }
