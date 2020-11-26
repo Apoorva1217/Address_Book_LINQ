@@ -21,6 +21,41 @@ namespace AddressBookLinq
             dataTable.Columns.Add("ZipCode", typeof(string));
             dataTable.Columns.Add("PhoneNumber", typeof(string));
             dataTable.Columns.Add("Email", typeof(string));
+
+            dataTable.Rows.Add("Apoorva", "Rasal", "Kalwa", "Thane", "Maharashtra", "400605", "9876543212", "Appu12@gmail.com");
+            dataTable.Rows.Add("Shreya", "Kadam", "Kharadi", "Pune", "Maharashtra", "411045", "9976543212", "Shreya11@gmail.com");
+            dataTable.Rows.Add("Yash", "Rasal", "Vashi", "NaviMumbai", "Maharashtra", "422034", "9876543213", "Yash17@gmail.com");
+            dataTable.Rows.Add("Swara", "Shinde", "Airoli", "Thane", "Maharashtra", "400123", "9076543212", "Swara98@gmail.com");
+            dataTable.Rows.Add("Manaswi", "Patil", "Panvel", "NaviMumbai", "Maharashtra", "422935", "9876543214", "Manu00@gmail.com");
+            dataTable.Rows.Add("Shubham", "Nalawade", "Bandra", "Mumbai", "Maharashtra", "400213", "9936543212", "Shubh56@gmail.com");
+            dataTable.Rows.Add("Aarya", "Rasal", "Dombivali", "Thane", "Maharashtra", "400876", "9876543243", "Aarya13@gmail.com");
+            dataTable.Rows.Add("Tanvi", "Kute", "Varoli", "Mumbai", "Maharashtra", "426789", "8976543212", "Tanvi10@gmail.com");
+            dataTable.Rows.Add("Shefali", "Kadam", "Hadapsar", "Pune", "Maharashtra", "411735", "8776543212", "Shefali67@gmail.com");
+            dataTable.Rows.Add("Aayush", "Pawar", "Aaundh", "Pune", "Maharashtra", "411985", "9176543211", "Aayush07@gmail.com");
+        }
+
+        /// <summary>
+        /// Display Method to Print Data Table Values
+        /// </summary>
+        public void Display()
+        {
+            foreach (DataRow row in dataTable.Rows)
+            {
+                foreach (DataColumn column in dataTable.Columns)
+                {
+                    Console.WriteLine("{0}:{1}", column.ColumnName, row[column]);
+                }
+                Console.WriteLine("--------------------");
+            }
+        }
+
+        /// <summary>
+        /// UC3 Ability to insert new contacts to Address Book
+        /// </summary>
+        public void InsertDataIntoAddressBook(Details details)
+        {
+            dataTable.Rows.Add(details.FirstName, details.LastName, details.Address, details.City,
+                details.State, details.ZipCode, details.PhoneNumber, details.Email);
         }
     }
 }
