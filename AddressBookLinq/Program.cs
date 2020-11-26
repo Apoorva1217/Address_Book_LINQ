@@ -21,7 +21,9 @@ namespace AddressBookLinq
                 Console.WriteLine("4.Delete Contact");
                 Console.WriteLine("5.Retrieve Person By City");
                 Console.WriteLine("6.Retrieve Person By State");
-                Console.WriteLine("7.Exit");
+                Console.WriteLine("7.Count Person By City");
+                Console.WriteLine("8.Count Person By State");
+                Console.WriteLine("9.Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -82,6 +84,12 @@ namespace AddressBookLinq
                         addressBookRepo.RetrievePersonBelongingToState(State);
                         break;
                     case 7:
+                        addressBookRepo.GetCountOfPersonByCity();
+                        break;
+                    case 8:
+                        addressBookRepo.GetCountOfPersonByState();
+                        break;
+                    case 9:
                         return;
                 }
             }

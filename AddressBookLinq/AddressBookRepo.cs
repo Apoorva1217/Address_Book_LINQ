@@ -131,5 +131,33 @@ namespace AddressBookLinq
                 }
             }
         }
+
+        /// <summary>
+        /// UC7 Ability to get count of person by City
+        /// </summary>
+        public void GetCountOfPersonByCity()
+        {
+            var countByCity = from row in dataTable.AsEnumerable() 
+                              group row by new { City = row.Field<string>("City")} into data
+                              select new { City = data.Key.City, count=data.Count()};
+            foreach (var list in countByCity)
+            {
+                Console.WriteLine("City " + list.City + "----- Count" + list.count);
+            }
+        }
+
+        /// <summary>
+        /// UC7 Ability to get count of person by State
+        /// </summary>
+        public void GetCountOfPersonByState()
+        {
+            var countByState = from row in dataTable.AsEnumerable()
+                              group row by new { State = row.Field<string>("State") } into data
+                              select new { State = data.Key.State, count = data.Count() };
+            foreach (var list in countByState)
+            {
+                Console.WriteLine("State " + list.State + "----- Count" + list.count);
+            }
+        }
     }
 }
