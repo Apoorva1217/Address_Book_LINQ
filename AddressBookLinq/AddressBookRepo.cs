@@ -12,6 +12,7 @@ namespace AddressBookLinq
         /// UC1 UC2 Ability to create Address Book Data Table 
         /// </summary>
         DataTable dataTable = new DataTable();
+
         public void CreateDataTable()
         {
             dataTable.Columns.Add("FirstName", typeof(string));
@@ -79,6 +80,19 @@ namespace AddressBookLinq
             else
             {
                 Console.WriteLine("No Data Found");
+            }
+        }
+
+        /// <summary>
+        /// UC5 Ability to Delete person using person's name
+        /// </summary>
+        /// <param name="FirstName"></param>
+        public void DeleteContact(string FirstName)
+        {
+            var deleteData = dataTable.AsEnumerable().Where(x => x.Field<string>("FirstName").Equals(FirstName)).First();
+            if (deleteData != null)
+            {
+                deleteData.Delete();
             }
         }
     }

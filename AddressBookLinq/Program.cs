@@ -64,6 +64,11 @@ namespace AddressBookLinq
                         addressBookRepo.EditContact(details);
                         break;
                     case 4:
+                        Console.WriteLine("Enter First Name:");
+                        string FirstName = Console.ReadLine();
+                        addressBookRepo.DeleteContact(FirstName);
+                        break;
+                    case 5:
                         return;
                 }
             }
